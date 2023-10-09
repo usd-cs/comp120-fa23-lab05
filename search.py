@@ -4,6 +4,8 @@ from sys import argv, exit
 def create_random_ordered_list(num_items: int) -> list[int]:
     """Generates an ordered list of integers of length <num_items>
 
+    Precondition: num_items > 0
+
     Args:
         num_items (int): Number of items to generate for the list.
 
@@ -13,7 +15,7 @@ def create_random_ordered_list(num_items: int) -> list[int]:
     assert num_items > 0
     my_list = []
     prev = 0
-    for i in range(num_items):
+    for _ in range(num_items):
         n = prev + random.randrange(2, 11)
         my_list.append(n)
         prev = n
