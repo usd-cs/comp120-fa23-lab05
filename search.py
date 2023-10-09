@@ -21,20 +21,24 @@ def create_random_ordered_list(num_items: int) -> list[int]:
     return my_list
 
 def binary_search(nums: list[int], target: int) -> bool:
-    """ Uses binary search to determine if <target>   
-        is in the ordered list <nums>, returning 
-        True if it is, and False otherwise. """
+    """ Uses binary search to determine if <target> is in the ordered list <nums>,
+    returning True if it is, and False otherwise. """
 
-    if len(nums) == 0: # base case 1
-        return False
+    first = 0
+    last = len(nums) - 1
 
-    midpoint = len(nums) // 2
-    if nums[midpoint] == target: # base case 2
-        return True
-    elif target < nums[midpoint]:
-        return binary_search(nums[:midpoint], target)
-    else:
-        return binary_search(nums[midpoint+1:], target)
+    while first <= last:
+        midpoint = (first + last) // 2
+
+        if nums[midpoint] == target:
+            return True
+        elif target < nums[midpoint]:
+            last = midpoint - 1
+        else:
+            first = midpoint + 1
+
+    return False
+
 
 if __name__ == "__main__":
     # create and print random list of 5 ints
