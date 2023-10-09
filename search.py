@@ -1,3 +1,9 @@
+"""
+Module: search
+
+Program that uses binary search to determine if a number is in a list.
+"""
+
 import random
 from sys import argv, exit
 
